@@ -3,7 +3,7 @@ import Tkinter as tkinter
 
 root = Tk()
 
-root.title('Feet to Meters')
+root.title('Feet / Meters converter')
 
 # function
 def calculate_ftm(*args):
