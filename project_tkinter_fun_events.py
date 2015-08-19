@@ -6,7 +6,7 @@ import Tkinter as tkinter
 root = Tk()
 root.title('event window')
 
-frame = tkinter.Frame(root, relief='raised').grid(row=0,column=0,sticky=(N,S,E,W))
+frame = tkinter.Frame(root, relief='ridge', borderwidth=50).grid(row=2,column=2,sticky=(N,S,E,W))
 
 label_1 = tkinter.Label(frame, text='waiting...', padx=200,pady=200)
 
