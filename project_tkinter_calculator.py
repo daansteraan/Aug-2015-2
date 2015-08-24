@@ -1,6 +1,12 @@
+''' What i really like about this project is that is really is simple. 
+the whole thing can easily be shortened to less than 50 lines of code and
+still work perfectly, which was the initial objective. '''
+
+from __future__ import division
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
+
 
 # main window
 root = Tk()
@@ -49,7 +55,6 @@ equal.grid(row=6,column=0,sticky=(N,S,E,W))
 
 clear = tk.Button(root,text='CLEAR',padx = 5, pady=3,command = refresh)
 clear.grid(row=6,column=1, columnspan = 2,sticky=(N,S,E,W))
-
 
 #menu
 menubar = Menu(root)
