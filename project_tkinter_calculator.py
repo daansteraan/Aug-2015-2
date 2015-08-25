@@ -7,7 +7,6 @@ from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
 
-
 # main window
 root = Tk()
 root.title('Calculator')
