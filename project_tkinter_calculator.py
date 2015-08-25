@@ -17,7 +17,7 @@ buttons = ['1','2','3','4','5','6','7','8','9','0','+','-','/','*','.']
 
 sum_value = StringVar()
 
-def appear(x):
+def main_window(x):
     return lambda: output_window.insert(END,x)
    
 # output window
@@ -42,10 +42,10 @@ c=0
 
 for i in buttons:
     if c < 2:
-        tk.Button(root, text = i, command = appear(i), pady = 3).grid(row = r, column = c, sticky = (N,S,E,W))        
+        tk.Button(root, text = i, command = main_window(i), pady = 3).grid(row = r, column = c, sticky = (N,S,E,W))        
         c += 1
     else:
-        tk.Button(root, text = i, command = appear(i), pady = 3).grid(row = r,column = c,sticky = (N,S,E,W))
+        tk.Button(root, text = i, command = main_window(i), pady = 3).grid(row = r,column = c,sticky = (N,S,E,W))
         r  += 1
         c = 0
         
