@@ -8,18 +8,20 @@ import time
 alarmclock = Tk()
 alarmclock.title('Alarm Clock')
 
-time_1 = StringVar()
 
-timer = tk.Label(alarmclock,width=30)
+current_time = time.ctime()
+
+def updater():
+    new_time = time.ctime()
+    if new_time != current_time:
+        timer.config(text=new_time)
+
+timer = tk.Label(alarmclock,text=current_time,width=30)
 timer.grid(row=0,column=0,pady=5)
 
-time_2 = time.ctime()
-
-while True:
-    if time_1 != time_2:
-        time_1 = time_2        
-        timer.config(text=time_1)
-        alarmclock.update_idletasks()
-        time.sleep(1)
+update_time = tk.Button(alarmclock, text='Update', command = updater)
+update_time.grid(row=1,pady=5,sticky=(E,W))
+  
+alarmclock.after(1000,updater)  
   
 alarmclock.mainloop()
