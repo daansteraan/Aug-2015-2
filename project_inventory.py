@@ -11,11 +11,11 @@ class Inventory():
     def __init__(self, inventory_name):
         self.inventory_name = inventory_name
 
-    def add_item(self, product, price):
+    def add_item(self, product, price, quantity):
         
         # Add product to the inventory        
         if not product in self.items_in_inventory:
-            self.items_in_inventory[product] = price
+            self.items_in_inventory[product] = (price, quantity)
             print product + " added."
         else:
             print product + " is already in the inventory."
@@ -35,29 +35,28 @@ class Inventory():
         
         print self.items_in_inventory
         print
+            
+    def prompt(self):
         
+        i = raw_input('New item(+), remove item(-) or print cart(=): ')
+    
+        if i == '+':
+            name = raw_input('NAME: ')
+            cost = raw_input('PRICE: ')
+            quant = raw_input('QUANT: ')         
+            
+            inventory.add_item(name, float(cost), int(quant))
+        
+        elif i == '-':
+            name = raw_input('NAME: ')
+            inventory.remove_item(name)
+            
+        elif i == '=':
+            inventory.print_inventory()
+            
+        inventory.prompt()
 
 inventory_name = raw_input('Inventory name: ')
 inventory = Inventory(inventory_name)
-        
-def prompt():
-    
-    i = raw_input('New item(+), remove item(-) or print cart(=): ')
 
-    if i == '+':
-        name = raw_input('NAME: ')
-        cost = raw_input('PRICE: ')
-        
-        inventory.add_item(name, float(cost))
-    
-    elif i == '-':
-        name = raw_input('NAME: ')
-        inventory.remove_item(name)
-        
-    elif i == '=':
-        inventory.print_inventory()
-        
-    prompt()
-
-
-prompt()    
+inventory.prompt()
